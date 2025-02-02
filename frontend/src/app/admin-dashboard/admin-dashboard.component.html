@@ -1,0 +1,36 @@
+<app-header (sidebarToggle)="toggleSidebar($event)"></app-header>
+<div class="side-navbar" [class.open]="isSidebarOpen"></div>
+
+    <div class="dashboard" [class.dashboard-shift]="isSidebarOpen">
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+  
+      <div class="dashboard-container">
+  
+        <!-- Dashboard Cards -->
+        <div class="cards">
+          <div class="card">
+            <h3>My Profile</h3>
+            <p>View and edit doctor information.</p>
+          </div>
+  
+          <div class="card">
+            <h3>My Tasks</h3>
+            <p>Manage your ongoing tasks and activities.</p>
+          </div>
+  
+          <div class="card">
+            <h3>Notifications</h3>
+            <p>Stay updated with new notifications.</p>
+          </div>
+  
+          <div class="card">
+            <h3>Settings</h3>
+            <p>Update account preferences and settings.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  

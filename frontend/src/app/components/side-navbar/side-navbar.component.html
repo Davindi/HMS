@@ -1,0 +1,26 @@
+<!-- Toggle button to open the sidebar -->
+<button class="open-btn" (click)="toggleSidebar()" *ngIf="!isOpen">
+    ☰ 
+</button>
+  
+
+<!-- Sidebar -->
+<div class="side-navbar" [class.open]="isOpen">
+    <button class="close-btn" (click)="toggleSidebar()">✖</button>
+    <ul>
+      <li *ngFor="let item of getMenuItems()">
+        <ng-container *ngIf="!item.action">
+          <a [routerLink]="item.path">
+            <mat-icon class="menu-icon">{{ item.icon }}</mat-icon>
+            <span>{{ item.label }}</span>
+          </a>
+        </ng-container>
+        <ng-container *ngIf="item.action === 'logout'">
+          <a (click)="logout()">
+            <mat-icon class="menu-icon">{{ item.icon }}</mat-icon>
+            <span>{{ item.label }}</span>
+          </a>
+        </ng-container>
+      </li>
+    </ul>
+</div>

@@ -1,0 +1,56 @@
+<app-header (sidebarToggle)="toggleSidebar($event)"></app-header>
+<div class="side-navbar" [class.open]="isSidebarOpen"></div>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard" [class.dashboard-shift]="isSidebarOpen">
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+
+        <div class="manage-doctors">
+
+            <h2 class="manage-docs">Manage Doctors
+                <div class="header">
+                    <button class="add-doctor-btn" (click)="openAddDoctorDialog()">
+                        Add Doctor
+                    </button>
+                </div>
+            </h2>
+            
+            
+            <!-- Doctors Table -->
+            <table>
+                <thead>
+                    <tr>
+                        
+                        <th>Name</th>
+                        <th>Specialization</th>
+                        <th>Email</th>
+                        <th>Contact Number</th>
+                        <th>Hospital</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let doctor of doctors">
+                        
+                        <td>{{ doctor.name }}</td>
+                        <td>{{ doctor.specialization }}</td>
+                        <td>{{ doctor.email }}</td>
+                        <td>{{ doctor.contactNumber }}</td>
+                        <td>{{ doctor.hospital }}</td>
+                        <td>
+                            <!-- Edit and Delete icons -->
+                            <button class="mat-icon-button1" (click)="openUpdateDoctorDialog(doctor)">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button class="mat-icon-button2" (click)="deleteDoctor(doctor)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+

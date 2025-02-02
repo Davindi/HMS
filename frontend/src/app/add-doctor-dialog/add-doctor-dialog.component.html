@@ -1,0 +1,43 @@
+<div class="dialog">
+<h2 class="dialog-title">{{ data.title }}</h2>
+<div class="dialog-content">
+  <form [formGroup]="addDoctorForm" (ngSubmit)="onSubmit()">
+    <div class="form-field">
+      <label for="name">Name</label>
+      <input id="name" formControlName="name" type="text" />
+      <div class="error" *ngIf="addDoctorForm.get('name')?.touched && addDoctorForm.get('name')?.invalid">Name is required.</div>
+    </div>
+
+    <div class="form-field">
+      <label for="specialization">Specialization</label>
+      <input id="specialization" formControlName="specialization" type="text" />
+      <div class="error" *ngIf="addDoctorForm.get('specialization')?.touched && addDoctorForm.get('specialization')?.invalid">Specialization is required.</div>
+    </div>
+
+    <div class="form-field">
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" type="email" />
+      <div class="error" *ngIf="addDoctorForm.get('email')?.touched && addDoctorForm.get('email')?.invalid">Valid email is required.</div>
+    </div>
+
+    <div class="form-field">
+      <label for="contactNumber">Contact Number</label>
+      <input id="contactNumber" formControlName="contactNumber" type="text" />
+      <div class="error" *ngIf="addDoctorForm.get('contactNumber')?.touched && addDoctorForm.get('contactNumber')?.invalid">
+        A valid 10-digit number is required.
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label for="hospital">Hospital</label>
+      <input id="hospital" formControlName="hospital" type="text" />
+      <div class="error" *ngIf="addDoctorForm.get('hospital')?.touched && addDoctorForm.get('hospital')?.invalid">Hospital is required.</div>
+    </div>
+
+  </form>
+</div>
+<div class="dialog-actions">
+  <button class="cancel-button" mat-dialog-close>Cancel</button>
+  <button class="submit-button" [disabled]="addDoctorForm.invalid" (click)="onSubmit()">Submit</button>
+</div>
+</div>

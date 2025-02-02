@@ -1,0 +1,25 @@
+mat-toolbar {
+    background-color: #10283b83;
+    height: 80px; 
+    display: flex;
+    align-items: center; // Center content vertically
+    padding: 0 20px; 
+    position: fixed; // Allows absolute positioning for child elements
+    z-index: 1100;
+  }
+  
+  .toolbar-title {
+    flex-grow: 1; // Takes up available space, ensuring it stays centered
+    text-align: center; // Centers the title horizontally
+    font-size: 30px; 
+  }
+  
+  .profile-icon {
+    position: absolute; // Place it independently of the title
+    right: 20px; // Move it to the right
+    font-size: 25px; // Increase icon size
+    cursor: pointer; // Makes the icon clickable
+  }
+
+
+ 

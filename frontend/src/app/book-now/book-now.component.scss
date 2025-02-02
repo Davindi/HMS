@@ -1,0 +1,80 @@
+.side-navbar.open {
+    left: 0; /* Move sidebar into view */
+}
+  
+  /* Dashboard Content */
+.dashboard {
+    transition: margin-left 0.3s ease-in-out;
+}
+  
+.dashboard-shift {
+    margin-left: 350px; /* This should match the sidebar width */
+}
+
+.dashboard {
+  margin-top: 0; /* Ensure no margin above the content */
+  padding-top: 80px; /* Add padding to account for the height of the header if needed */
+}
+  
+
+
+.appointment-form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #e7e4e4;
+  }
+  
+  .form-field {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-field label {
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  .form-field select,
+  .form-field input[type="date"],
+  button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  button {
+    margin: 20px auto 0;
+    margin-top: 20px;
+    background-color: #013d7e;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    transition: background-color 0.3s ease;
+    display: block; 
+  }
+  
+  button:disabled {
+    background-color: #9e9c9c;
+    cursor: not-allowed;
+  }
+  
+  button:hover:not(:disabled) {
+    background-color: #0251a5;
+  }
+  
+  .appointment-number {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+    

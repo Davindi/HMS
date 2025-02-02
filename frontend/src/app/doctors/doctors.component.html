@@ -1,0 +1,64 @@
+<app-header (sidebarToggle)="toggleSidebar($event)"></app-header>
+<div class="side-navbar" [class.open]="isSidebarOpen"></div>
+  
+    <!-- Dashboard Content -->
+    <div class="dashboard" [class.dashboard-shift]="isSidebarOpen">
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+        <div class="doctor-list">
+            <div *ngIf="filteredDoctors.length > 0; else noDoctors" class="card-container">
+            <div class="card" *ngFor="let doctor of filteredDoctors">
+                <mat-icon class="person-icon">person</mat-icon>
+                <h3>{{ doctor.name }}</h3>
+                <p>{{ doctor.specialization }}</p>
+            </div>
+            </div>
+        
+            <ng-template #noDoctors>
+            <p>No doctors found for the selected specialization.</p>
+            </ng-template>
+        </div>
+
+        <div class="appointment-form">
+          <form (ngSubmit)="bookAppointment()" #appointmentForm="ngForm">
+            <!-- Doctor Name Selection -->
+            <div class="form-field">
+              <label for="doctorName">Select Doctor</label>
+              <select [(ngModel)]="appointment.doctorName" name="doctorName" id="doctorName" required>
+                <option *ngFor="let doctor of doctors" [value]="doctor.name">
+                  {{ doctor.name }} - {{ doctor.specialization }}
+                </option>
+              </select>
+            </div>
+        
+            <!-- Date Selection -->
+            <div class="form-field">
+              <label for="date">Select Date</label>
+              <input type="date" id="date" [(ngModel)]="appointment.date" name="date" required />
+            </div>
+        
+            <!-- Session Selection -->
+            <div class="form-field">
+              <label for="session">Select Session</label>
+              <select [(ngModel)]="appointment.session" name="session" id="session" required>
+                <option value="Morning">Morning</option>
+                <option value="Afternoon">Afternoon</option>
+                <option value="Evening">Evening</option>
+              </select>
+            </div>
+        
+            <!-- Appointment Number Display -->
+            <div *ngIf="appointmentNumber" class="appointment-number">
+              <p>Your appointment number: <strong>{{ appointmentNumber }}</strong></p>
+            </div>
+        
+            <!-- Submit Button -->
+            <button type="submit" [disabled]="!appointmentForm.valid">Book Appointment</button>
+          </form>
+        </div>
+        
+          
+
+    </div>
+

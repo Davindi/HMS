@@ -1,0 +1,135 @@
+/* Container for the manage doctors section */
+.dashboard {
+    display: flex;
+
+    .manage-doctors {
+        padding: 20px;
+        width: 85%;
+        margin: 0 auto;
+        font-family: 'Arial', sans-serif;
+        
+
+        .manage-docs {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+            .add-doctor-btn {
+                background-color: #0056b3;
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                font-size: 1rem;
+                border-radius: 5px;
+                cursor: pointer;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                transition: background-color 0.3s ease;
+                float: right;
+                
+                &:hover {
+                    background-color: #007bff;
+                }
+            }
+        
+        /* Header Section Styling */
+        h2 {
+        text-align: center;
+        font-size: 1.5rem;
+        color: #ffffff;
+        background: linear-gradient(90deg, #014b9b, #023266);
+        padding: 15px 20px;
+        border-radius: 8px;
+        margin-left: auto;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    
+    
+        /* Table styling */
+        table {
+        width: 100%;
+        border-collapse: collapse;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+        border-radius: 8px;
+        overflow: hidden;
+
+
+        button.mat-icon-button1 {
+          margin-right: 15px;
+        }
+        
+        button.mat-icon-button1 mat-icon {
+          font-size: 20px;
+          color: #7ea3ca; /* You can change the color as needed */
+        }
+        
+        button.mat-icon-button1:hover mat-icon {
+          color: #0056b3; /* Change color on hover */
+        }
+
+        button.mat-icon-button2 mat-icon {
+          font-size: 20px;
+          color: #fc5757; /* You can change the color as needed */
+        }
+        
+        button.mat-icon-button2:hover mat-icon {
+          color: #771305; /* Change color on hover */
+        }
+        
+    
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    
+        /* Header styling */
+        th {
+            background-color: #007bff;
+            color: white;
+            font-size: 1.1rem;
+        }
+    
+        /* Row styling */
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    
+        /* Hover effect on rows */
+        tr:hover {
+            background-color: #f1f1f1;
+            cursor: pointer;
+        }
+    
+        /* First column (ID) styling */
+        td:first-child {
+            font-weight: bold;
+            color: #007bff;
+        }
+        }
+    
+        
+    }
+}
+
+
+.side-navbar.open {
+    left: 0; /* Move sidebar into view */
+}
+  
+  /* Dashboard Content */
+.dashboard {
+    transition: margin-left 0.3s ease-in-out;
+}
+  
+.dashboard-shift {
+    margin-left: 350px; /* This should match the sidebar width */
+}
+
+.dashboard {
+    margin-top: 0; /* Ensure no margin above the content */
+    padding-top: 80px; /* Add padding to account for the height of the header if needed */
+}
+    
+  
+ 

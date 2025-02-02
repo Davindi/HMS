@@ -1,0 +1,164 @@
+/* Container for cards */
+.doctor-list {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    align-items: center;
+    margin: 20px;
+  }
+
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    width: 100%;
+    max-width: 1000px;
+    justify-content: center;
+    padding: 10px;
+}
+
+  
+  /* Individual card styling */
+  .card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 200px;
+    background-color: #eceaea;
+    border: 1px solid #f7f4f4;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Icon container */
+  .card-icon {
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+  }
+  
+  .person-icon {
+    font-size: 30px;
+    color: #555;
+  }
+  
+  /* Card content */
+  .card-content h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .card-content p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #666;
+  }
+
+
+  
+.side-navbar.open {
+    left: 0; /* Move sidebar into view */
+}
+  
+  /* Dashboard Content */
+.dashboard {
+    transition: margin-left 0.3s ease-in-out;
+}
+  
+.dashboard-shift {
+    margin-left: 350px; /* This should match the sidebar width */
+}
+
+.dashboard {
+  margin-top: 0; /* Ensure no margin above the content */
+  padding-top: 80px; /* Add padding to account for the height of the header if needed */
+}
+  
+
+
+  
+  
+
+
+.appointment-form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #e7e4e4;
+}
+
+.form-field {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field label {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.form-field select,
+.form-field input[type="date"],
+button {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  margin: 20px auto 0;
+  margin-top: 20px;
+  background-color: #013d7e;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  transition: background-color 0.3s ease;
+  display: block; 
+}
+
+button:disabled {
+  background-color: #9e9c9c;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #0251a5;
+}
+
+.appointment-number {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #333;
+}
+
+  
+
+
+
+
+
+
+  
