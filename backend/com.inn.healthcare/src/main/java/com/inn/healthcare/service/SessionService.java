@@ -11,4 +11,6 @@ public interface SessionService {
     ResponseEntity<String> addNewSession(Map<String, String> requestMap);
 
     ResponseEntity<List<Session>> getAllSessions(String doctorName);
+
+    ResponseEntity<String> updateSessionStatus(Integer sessionId, Map<String, String> statusMap);
 }

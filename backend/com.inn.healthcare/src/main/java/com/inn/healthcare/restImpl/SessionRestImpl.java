@@ -40,4 +40,15 @@ public class SessionRestImpl implements SessionRest {
         return new ResponseEntity<>(new ArrayList<>(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
+    @Override
+    public ResponseEntity<String> updateSessionStatus(Integer sessionId, Map<String, String> statusMap) {
+        try {
+            return sessionService.updateSessionStatus(sessionId, statusMap);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return HealthcareUtils.getResponseEntity(HealthcareConstants.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+
 }

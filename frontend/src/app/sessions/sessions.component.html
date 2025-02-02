@@ -1,53 +1,76 @@
+<app-header (sidebarToggle)="toggleSidebar($event)"></app-header>
+<div class="side-navbar" [class.open]="isSidebarOpen"></div>
+
+
+<div class="dashboard" [class.dashboard-shift]="isSidebarOpen">
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+
 <div class="sessions-container">
-    <h2>Manage Sessions</h2>
-  
+  <h2>Manage Sessions</h2>
+
+  <!-- Layout container for form & table -->
+  <div class="sessions-layout">
+    
     <!-- Add Session Form -->
     <form [formGroup]="sessionForm" (ngSubmit)="addSession()" class="session-form">
       <div class="form-group">
         <label for="doctorName">Doctor Name</label>
-        <input id="doctorName" type="text" formControlName="doctorName" required />
+        <select id="doctorName" formControlName="doctorName" required>
+          <option *ngFor="let doctor of doctors" [value]="doctor.name">{{ doctor.name }}</option>
+        </select>
       </div>
-  
+
       <div class="form-group">
         <label for="date">Date</label>
         <input id="date" type="date" formControlName="date" required />
       </div>
-  
+
       <div class="form-group">
         <label for="session">Session</label>
-        <input id="session" type="text" formControlName="session" required />
+        <select id="session" formControlName="session" required>
+          <option *ngFor="let s of sessionOptions" [value]="s">{{ s }}</option>
+        </select>
       </div>
-  
+
       <button type="submit" [disabled]="sessionForm.invalid">Add Session</button>
     </form>
-  
-    <!-- Loading Indicator -->
-    <div *ngIf="isLoading" class="loading">Loading sessions...</div>
-  
+
     <!-- Sessions Table -->
-    <table *ngIf="sessions.length > 0">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Doctor Name</th>
-          <th>Date</th>
-          <th>Session</th>
-          <th>Status</th>
-          
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let session of sessions">
-          <td>{{ session.id }}</td>
-          <td>{{ session.doctorName }}</td>
-          <td>{{ session.date | date: 'yyyy-MM-dd' }}</td>
-          <td>{{ session.session }}</td>
-          <td>{{ session.status }}</td>
-          
-        </tr>
-      </tbody>
-    </table>
-  
-    <p *ngIf="sessions.length === 0 && !isLoading">No sessions available.</p>
+    <div class="sessions-table">
+      <div *ngIf="isLoading" class="loading">Loading sessions...</div>
+
+      <table *ngIf="sessions.length > 0">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Doctor Name</th>
+            <th>Date</th>
+            <th>Session</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let session of sessions">
+            <td>{{ session.id }}</td>
+            <td>{{ session.doctorName }}</td>
+            <td>{{ session.date | date: 'yyyy-MM-dd' }}</td>
+            <td>{{ session.session }}</td>
+            <td>
+              <!-- Toggle Button -->
+              <label class="switch">
+                <input type="checkbox" [checked]="session.status === 'Active'" (change)="toggleSessionStatus(session)">
+                <span class="slider"></span>
+              </label>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p *ngIf="sessions.length === 0 && !isLoading">No sessions available.</p>
+    </div>
+    
   </div>
-  
+</div>
+</div>

@@ -16,6 +16,9 @@ public interface SessionRest {
     @GetMapping(path = "/get")
     ResponseEntity<List<Session>> getAllSessions(@RequestParam(required = false) String doctorName);
 
+    // Update session status (e.g., Active / Inactive)
+    @PutMapping(path = "/update-status/{sessionId}")
+    ResponseEntity<String> updateSessionStatus(@PathVariable("sessionId") Integer sessionId, @RequestBody Map<String, String> statusMap);
 
 }
 

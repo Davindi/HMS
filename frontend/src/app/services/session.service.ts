@@ -42,6 +42,16 @@ export class SessionService {
     );
   }
 
+  updateSessionStatus(sessionId: number, status: string): Observable<any> {
+    const statusMap = { status };
+    return this.http.put<any>(`${this.baseUrl}update-status/${sessionId}`, statusMap, { headers: this.getAuthHeaders() }).pipe(
+      catchError((error) => {
+        console.error('Error updating session status:', error);
+        return throwError(() => new Error('Failed to update session status. Please try again later.'));
+      })
+    );
+  }
+
   
 }
 

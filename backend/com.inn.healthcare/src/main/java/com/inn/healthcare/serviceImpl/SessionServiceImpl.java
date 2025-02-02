@@ -61,7 +61,25 @@ public class SessionServiceImpl implements SessionService {
             return new ResponseEntity<>(new ArrayList<>(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    
+
+    @Override
+    public ResponseEntity<String> updateSessionStatus(Integer sessionId, Map<String, String> statusMap) {
+        try {
+            if (jwtfilter.isAdmin()) { // Only admins can update session status
+                String status = statusMap.get("status");
+                if (!Strings.isNullOrEmpty(status)) {
+                    sessionDao.updateSessionStatus(sessionId, status);
+                    return HealthcareUtils.getResponseEntity("Session status updated successfully!", HttpStatus.OK);
+                }
+                return HealthcareUtils.getResponseEntity("Invalid status!", HttpStatus.BAD_REQUEST);
+            }
+            return HealthcareUtils.getResponseEntity(HealthcareConstants.UNAUTHORIZED_ACCESS, HttpStatus.UNAUTHORIZED);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return HealthcareUtils.getResponseEntity(HealthcareConstants.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
 
     private boolean validateSessionMap(Map<String, String> requestMap, boolean validateId) {
         if (requestMap.containsKey("doctorName") && requestMap.containsKey("date")
