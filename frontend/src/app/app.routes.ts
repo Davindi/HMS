@@ -12,6 +12,7 @@ import { DoctorListComponent } from './doctor-list/doctor-list.component';
 import { BookNowComponent } from './book-now/book-now.component';
 import { AuthGuard } from './auth.guard';
 import { SessionsComponent } from './sessions/sessions.component';
+import { PatientsComponent } from './patients/patients.component';
 
 export const routes: Routes = [
 
@@ -75,6 +76,12 @@ export const routes: Routes = [
     {
         path: 'sessions',
         component: SessionsComponent,
+        canActivate: [AuthGuard]
+    },
+
+    {
+        path: 'patients',
+        component: PatientsComponent,
         canActivate: [AuthGuard]
     },
 

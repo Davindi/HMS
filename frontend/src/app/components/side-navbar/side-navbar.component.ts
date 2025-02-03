@@ -38,6 +38,7 @@ export class SideNavbarComponent {
         { label: 'Dashboard', path: '/admindashboard' , icon: 'dashboard' },
         { label: 'Manage Doctors', path: '/managedoctors' ,icon: 'group'},
         { label: 'Manage Sessions', path: '/sessions' ,icon: 'access_time'},
+        { label: 'Patient Appointments', path: '/patients' ,icon: 'assignment_turned_in'},
         { label: 'Logout', path: '/login' , icon: 'logout', action: 'logout'},
       ];
     }

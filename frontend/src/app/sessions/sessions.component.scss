@@ -135,8 +135,8 @@ p {
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
+  width: 100px; /* Toggle width */
+  height: 34px;  /* Toggle height */
 }
 
 .switch input {
@@ -154,33 +154,60 @@ p {
   bottom: 0;
   background-color: #ccc;
   transition: 0.4s;
-  border-radius: 24px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  padding: 0 14px;
 }
 
-.slider:before {
-  position: absolute;
+/* Toggle Circle */
+.slider::before {
   content: "";
-  height: 26px;
-  width: 26px;
-  border-radius: 50%;
+  position: absolute;
+  height: 30px; /* Circle size */
+  width: 30px;
   left: 4px;
-  bottom: 4px;
+  bottom: 2px;
   background-color: white;
   transition: 0.4s;
+  border-radius: 50%;
 }
 
+/* Active (Checked) Style */
 input:checked + .slider {
-  background-color: #4407eb; /* Green color when active */
+  background-color: #04115c;
 }
 
-input:checked + .slider:before {
-  transform: translateX(26px);
+input:checked + .slider::before {
+  transform: translateX(60px); /* Adjusted for a 100px wide button */
 }
 
-input:disabled + .slider {
-  background-color: #ddd;
+/* Style for the text */
+.slider .toggle-text {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  padding: 0 5px;
 }
 
-input:disabled + .slider:before {
-  background-color: #f1f1f1;
+.slider .toggle-text {
+  text-align: center;
 }
+
+.slider input:checked + .slider .toggle-text {
+  justify-content: flex-end; /* This will align the text to the right when checked */
+}
+
+.slider input:not(:checked) + .slider .toggle-text {
+  justify-content: flex-start; /* This will align the text to the left when unchecked */
+}
+
+
