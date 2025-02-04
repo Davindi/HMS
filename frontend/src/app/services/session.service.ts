@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { environment } from '../environment/environment';
 
 @Injectable({
@@ -48,6 +48,30 @@ export class SessionService {
       catchError((error) => {
         console.error('Error updating session status:', error);
         return throwError(() => new Error('Failed to update session status. Please try again later.'));
+      })
+    );
+  }
+
+  getUpcomingSessions(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}get`, { headers: this.getAuthHeaders() }).pipe(
+      map((sessions) => {
+        const today = new Date();
+        return sessions.filter(session => new Date(session.date) > today); // Only future sessions
+      }),
+      catchError((error) => {
+        console.error('Error fetching upcoming sessions:', error);
+        return throwError(() => new Error('Failed to fetch upcoming sessions.'));
+      })
+    );
+  }
+
+  // ✅ Get upcoming session count
+  getUpcomingSessionCount(): Observable<number> {
+    return this.getUpcomingSessions().pipe(
+      map((sessions) => sessions.length),
+      catchError((error) => {
+        console.error('Error fetching upcoming session count:', error);
+        return throwError(() => new Error('Failed to fetch upcoming session count.'));
       })
     );
   }

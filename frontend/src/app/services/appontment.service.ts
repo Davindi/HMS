@@ -55,4 +55,32 @@ export class AppointmentService {
     );
   }
 
+  getUpcomingAppointmentsList(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}get`, { headers: this.getAuthHeaders() }).pipe(
+      map((appointments) => {
+        const today = new Date();
+        return appointments.filter((appointment) => {
+          const appointmentDate = new Date(appointment.date);
+          return appointmentDate >= today; // ✅ Only return future appointments
+        });
+      }),
+      catchError((error) => {
+        console.error('Error fetching upcoming appointments list:', error);
+        return throwError(() => new Error('Failed to fetch upcoming appointments list'));
+      })
+    );
+  }
+
+  
+  getUpcomingAppointmentCount(): Observable<number> {
+    return this.getUpcomingAppointmentsList().pipe(
+      map((appointments) => appointments.length), // ✅ Only return count
+      catchError((error) => {
+        console.error('Error fetching upcoming appointment count:', error);
+        return throwError(() => new Error('Failed to fetch upcoming appointment count'));
+      })
+    );
+  }
+  
+
 }
