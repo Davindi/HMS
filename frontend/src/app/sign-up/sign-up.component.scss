@@ -1,12 +1,28 @@
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Place the image behind the form */
+}
+
+.background-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the screen */
+  object-position: center;
+}
+
 .signup-container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    font-family: 'Arial', sans-serif;
-  
+  background-color: rgba(255, 255, 255, 0.8); /* Slight transparency */
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px;
+  margin: 50px auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+
     h2 {
       text-align: center;
       margin-bottom: 20px;
