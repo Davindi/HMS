@@ -35,6 +35,7 @@ export class DoctorsComponent implements OnInit {
   isSidebarOpen: boolean = false;
   doctors: any[] = [];
   filteredDoctors: any[] = []; // Holds filtered data
+  searchTerm: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -55,6 +56,7 @@ export class DoctorsComponent implements OnInit {
 
     if (cachedData) {
       this.doctors = JSON.parse(cachedData); // Parse and use the data
+      this.filteredDoctors = this.doctors;
       console.log('Doctors loaded from cache:', this.doctors);
     } else {
       console.warn('No cached doctor data found.');
@@ -81,8 +83,22 @@ export class DoctorsComponent implements OnInit {
     });
   }
 
-
- 
+  filterDoctors(): void {
+    if (this.searchTerm) {
+      this.filteredDoctors = this.doctors.filter(
+        (doctor) =>
+          (doctor.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+          doctor.specialization
+            .toLowerCase()
+            .includes(this.searchTerm.toLowerCase())) &&
+          (this.route.snapshot.params['specialization']
+            ? doctor.specialization === this.route.snapshot.params['specialization']
+            : true) // Ensure it only filters within the current specialization
+      );
+    } else {
+      this.filterDoctorsBySpecialization(); // Reset filtered doctors to the specialization filter
+    }
+  }
 
   appointment = {
     doctorName: '',

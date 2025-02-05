@@ -5,35 +5,40 @@
 <div class="dashboard" [class.dashboard-shift]="isSidebarOpen">
   <div class="appointments-container">
     <!-- Upcoming Appointments Section -->
-    <h2>Upcoming Appointments</h2>
-    <div *ngIf="upcomingAppointments.length > 0; else noUpcoming">
-      <ul>
-        <li *ngFor="let appointment of upcomingAppointments">
-          <strong>Date:</strong> {{ appointment.date }}<br>
-          <strong>Session:</strong> {{ appointment.session }}<br>
-          <strong>Doctor:</strong> {{ appointment.doctorName }}<br>
-          <strong>Appointment Number:</strong> {{ appointment. appointmentNo }}
-        </li>
-      </ul>
+    <div>
+      <h2>Upcoming Appointments</h2>
+      <div *ngIf="upcomingAppointments.length > 0; else noUpcoming">
+        <ul>
+          <li *ngFor="let appointment of upcomingAppointments">
+            <strong>Date:</strong> {{ appointment.date }}<br>
+            <strong>Session:</strong> {{ appointment.session }}<br>
+            <strong>Doctor:</strong> {{ appointment.doctorName }}<br>
+            <strong>Appointment Number:</strong> {{ appointment.appointmentNo }}
+          </li>
+        </ul>
+      </div>
+      <ng-template #noUpcoming>
+        <p>No upcoming appointments.</p>
+      </ng-template>
     </div>
-    <ng-template #noUpcoming>
-      <p>No upcoming appointments.</p>
-    </ng-template>
   
     <!-- Appointment History Section -->
-    <h2>Appointment History</h2>
-    <div *ngIf="pastAppointments.length > 0; else noPast">
-      <ul>
-        <li *ngFor="let appointment of pastAppointments">
-          <strong>Date:</strong> {{ appointment.date }}<br>
-          <strong>Session:</strong> {{ appointment.session }}<br>
-          <strong>Doctor:</strong> {{ appointment.doctorName }}<br>
-          <strong>Appointment Number:</strong> {{ appointment. appointmentNo }}
-        </li>
-      </ul>
+    <div>
+      <h2>Appointment History</h2>
+      <div *ngIf="pastAppointments.length > 0; else noPast">
+        <ul>
+          <li *ngFor="let appointment of pastAppointments">
+            <strong>Date:</strong> {{ appointment.date }}<br>
+            <strong>Session:</strong> {{ appointment.session }}<br>
+            <strong>Doctor:</strong> {{ appointment.doctorName }}<br>
+            <strong>Appointment Number:</strong> {{ appointment.appointmentNo }}
+          </li>
+        </ul>
+      </div>
+      <ng-template #noPast>
+        <p>No past appointments.</p>
+      </ng-template>
     </div>
-    <ng-template #noPast>
-      <p>No past appointments.</p>
-    </ng-template>
   </div>
+  
 </div>  
