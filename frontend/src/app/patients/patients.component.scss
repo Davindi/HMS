@@ -1,0 +1,54 @@
+table {
+    width: 90%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: 50px;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  .table-title {
+    color: #333;
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-weight: bold;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+    width: 100%;  /* Makes it take full width */
+    display: block; 
+  }
+  
+
+  .side-navbar.open {
+    left: 0; /* Move sidebar into view */
+}
+  
+  /* Dashboard Content */
+.dashboard {
+    transition: margin-left 0.3s ease-in-out;
+}
+  
+.dashboard-shift {
+    margin-left: 350px; /* This should match the sidebar width */
+}
+  
+.dashboard {
+  margin-top: 0; /* Ensure no margin above the content */
+  padding-top: 80px; /* Add padding to account for the height of the header if needed */
+}
+  

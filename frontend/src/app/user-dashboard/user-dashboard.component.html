@@ -1,0 +1,129 @@
+<app-header (sidebarToggle)="toggleSidebar($event)"></app-header>
+<div class="side-navbar" [class.open]="isSidebarOpen"></div>
+  
+
+    <!-- Dashboard Content -->
+    <div class="dashboard" [class.dashboard-shift]="isSidebarOpen">
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+
+      <div class="blue-banner">
+        <div class="banner-content">
+            <h2>Book Your Appointment Today</h2>
+            <p>Don't wait! Schedule your consultation with top healthcare professionals.</p>
+            <button class="banner-button" routerLink="/booknow">
+              Book Now
+              <span class="material-icons arrow-icon">arrow_forward</span>
+            </button>
+        </div>
+        <div class="banner-image">
+          <img src="assets/images/doctor.png" alt="Doctor Consultation" />
+        </div>
+      </div>
+    
+
+      
+      <div class="dashboard-container">
+        
+        <!-- Dashboard Cards -->
+        <div class="cards">
+          <div class="card">
+            <h3>My Appointments</h3>
+            <p>Manage your upcoming doctor appointments, view history, and book new ones.</p>
+          </div>
+  
+          <div class="card">
+            <h3>My Tasks</h3>
+            <p>Manage your ongoing medical tasks and activities, such as follow-ups and prescriptions.</p>
+          </div>
+  
+          <div class="card">
+            <h3>Doctor Search</h3>
+            <p>Search for available doctors by specialty, location, and availability.</p>
+          </div>
+  
+          <div class="card">
+            <h3>Health Records</h3>
+            <p>Access your health records, including test results, prescriptions, and medical history.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="image-slider">
+        <ngx-slick-carousel class="carousel" [config]="slideConfig">
+          <div ngxSlickItem *ngFor="let img of images">
+            <img [src]="img" alt="Slide image" />
+          </div>
+        </ngx-slick-carousel>
+      </div>
+    </div> 
+
+
+    <div class="dashboard" [class.dashboard-shift]="isSidebarOpen">
+      <div class="dashboard1">
+        <h1 class="topic">Top Specialists</h1>
+        <div class="card-container">
+          <div class="card" routerLink="/doctors/physician">
+            <img src="assets/images/physician.jpeg" alt="Physician" />
+            <h3>Channel a Physician</h3>
+            <p>
+              A Physician specializes in general or internal medicine (diagnosing & treatment) other than surgical means.
+            </p>
+          </div>
+          <div class="card" routerLink="/doctors/cardiologist">
+            <img src="assets/images/cardiologyst.webp" alt="Cardiologist" />
+            <h3>Channel a Cardiologist</h3>
+            <p>
+              A Cardiologist specializes in the structure, functions, and diseases of the heart and blood vessels.
+            </p>
+          </div>
+          <div class="card" routerLink="/doctors/neurologist">
+            <img src="assets/images/neurologist.webp" alt="Neurologist" />
+            <h3>Channel a Neurologist</h3>
+            <p>
+              A Neurologist specializes in the structure, functions, and disorders of the nervous system, including the brain, spinal cord, and peripheral nerves.
+            </p>
+          </div>
+          <div class="card" routerLink="/doctors/pediatrics">
+            <img src="assets/images/pediatrician.jpg" alt="Pediatrician" />
+            <h3>Channel a Pediatrician</h3>
+            <p>
+              A Pediatrician specializes in the care, growth, and treatment of illnesses in infants, children, and adolescents.
+            </p>
+          </div>
+          <div class="card" routerLink="/doctors/demertalogist">
+            <img src="assets/images/Demertalogist.jpg" alt="Demertalogist" />
+            <h3>Channel a Demertalogist</h3>
+            <p>
+              A Dermatologist specializes in diagnosing and treating skin, hair, and nail conditions.
+            </p>
+          </div>
+          <div class="card" routerLink="/doctors/gynecologist">
+            <img src="assets/images/Gynecologist.jpg" alt="Gynecologist" />
+            <h3>Channel a Gynecologist</h3>
+            <p>
+              A Gynecologist specializes in women's reproductive health, including the diagnosis and treatment of related conditions.
+            </p>
+          </div>
+          <div class="card" routerLink="/doctors/ENT_Surgon">
+            <img src="assets/images/ENT_doctor.jpg" alt="ENT_Surgon" />
+            <h3>Channel an ENT Surgeon</h3>
+            <p>
+              An ENT surgeon specializes in diagnosing and treating conditions of the ear, nose, and throat, including related surgical procedures.
+            </p>
+          </div>
+          <div class="card" routerLink="/doctors/psychiatrist">
+            <img src="assets/images/Psychiatrist.webp" alt="Psychiatrist" />
+            <h3>Channel a Psychiatrist</h3>
+            <p>
+              A Psychiatrist specializes in diagnosing, treating, and preventing mental health disorders through therapy and medication.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  

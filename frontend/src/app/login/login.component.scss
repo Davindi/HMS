@@ -1,0 +1,136 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa;
+  box-sizing: border-box;
+}
+
+.login-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  overflow: hidden;
+}
+
+.image-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.image-section img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.form-section {
+  flex: 1;
+  padding: 20px;
+}
+
+.form-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.new-account {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.create-account-link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.create-account-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .login-content {
+    flex-direction: column; /* Stack elements vertically */
+    width: 100vw; /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    padding: 0; /* Remove any internal padding */
+    margin: 0; /* Remove any margins */
+    border-radius: 0; /* Remove border radius for full coverage */
+    box-shadow: none; /* Remove shadow for cleaner look */
+  }
+
+  .form-section {
+    order: 2; /* Place the form section below the image */
+    //padding: 20px;
+    margin: 0;
+  }
+
+  .image-section {
+    order: 1; /* Place the image section first */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%; /* Take half the screen */
+  }
+
+  .form-section {
+    height: 50%; /* Take the other half of the screen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-section {
+    height: 30%; /* Adjust image height for very small screens */
+  }
+
+  .form-section {
+    height: 100%; /* Adjust form height accordingly */
+    padding: 10px; /* Smaller padding for smaller screens */
+  }
+}

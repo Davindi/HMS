@@ -1,0 +1,33 @@
+<app-header (sidebarToggle)="toggleSidebar($event)"></app-header>
+<div class="side-navbar" [class.open]="isSidebarOpen"></div>
+
+<!-- Dashboard Content -->
+<div class="dashboard" [class.dashboard-shift]="isSidebarOpen">
+    <div class="table-title">Patient Appointments</div>
+
+    <table>
+    <thead>
+        <tr>
+        
+        <th>Doctor Name</th>
+        <th>Date</th>
+        <th>Session</th>
+        <th>User Email</th>
+        <th>Appointment No</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let appointment of appointments">
+        <td>{{ appointment.doctorName }}</td>
+        <td>{{ appointment.date }}</td>
+        <td>{{ appointment.session }}</td>
+        <td>{{ appointment.userEmail }}</td>
+        <td>{{ appointment.appointmentNo }}</td>
+        </tr>
+    </tbody>
+    </table>
+
+    <!-- Show message if no appointments -->
+    <p *ngIf="appointments.length === 0">No appointments found.</p>
+
+</div>

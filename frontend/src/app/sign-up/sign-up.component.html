@@ -1,0 +1,64 @@
+<div class="background-image">
+  <img src="assets/images/signup.jpg" alt="Signup Illustration" class="background-img" />
+</div>
+
+<div class="signup-container">
+    <h2>Create an Account</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          [(ngModel)]="name"
+          name="name"
+          required
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="contactNumber">Contact Number</label>
+        <input
+          type="tel"
+          id="contactNumber"
+          class="form-control"
+          [(ngModel)]="contactNumber"
+          name="contactNumber"
+          required
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          [(ngModel)]="email"
+          name="email"
+          required
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          [(ngModel)]="password"
+          name="password"
+          required
+        />
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+  
+      <div class="existing-account">
+        <p>Already have an account?</p>
+        <a routerLink="/login" class="login-link">Login here</a>
+      </div>
+    </form>
+</div>
+  

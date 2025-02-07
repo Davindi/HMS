@@ -1,0 +1,42 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<div class="login-container">
+  <div class="login-content">
+    <div class="image-section">
+      <img src="assets/images/login.jpg" alt="Login Illustration" />
+    </div>
+    <div class="form-section">
+      <form (ngSubmit)="onSubmit()">
+        <h2>Login</h2>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            class="form-control"
+            name="email"
+            [(ngModel)]="email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            name="password"
+            [(ngModel)]="password"
+            required
+          />
+        </div>
+        <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+        <button type="submit" class="btn btn-primary">Login</button>
+        <div class="new-account">
+          <p>Don't have an account?</p>
+          <a routerLink="/sign-up" class="create-account-link">Create a new account</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

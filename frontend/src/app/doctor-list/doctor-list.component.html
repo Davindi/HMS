@@ -1,0 +1,48 @@
+<app-header (sidebarToggle)="toggleSidebar($event)"></app-header>
+<div class="side-navbar" [class.open]="isSidebarOpen"></div>
+  
+    <!-- Dashboard Content -->
+<div class="dashboard" [class.dashboard-shift]="isSidebarOpen">
+
+  <div class="doctor-list-container">
+    <h2>Doctor List</h2>
+
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input
+        type="text"
+        placeholder="Search doctors..."
+        [(ngModel)]="searchQuery"
+        (input)="filterDoctors()"
+        class="search-input"
+      />
+      <mat-icon>search</mat-icon>
+    </div>
+  
+    <!-- Error Message -->
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  
+    <!-- Doctor List -->
+    <div *ngIf="filteredDoctors.length > 0; else noDoctors" class="card-grid">
+      <div *ngFor="let doctor of filteredDoctors" class="card">
+        <div class="photo-container">
+          <img *ngIf="doctor.photo" src="{{ doctor.photo }}" alt="Doctor Photo" class="doctor-photo" />
+          <mat-icon *ngIf="!doctor.photo" class="doctor-icon">account_circle</mat-icon>
+        </div>
+        <div class="card-content">
+          <h3>{{ doctor.name }}</h3>
+          <p><strong>Specialty:</strong> {{ doctor.specialization }}</p>
+          <p><strong>Hospital:</strong> {{ doctor.hospital }}</p>
+        </div>
+      </div>
+    </div>
+    <!-- No Doctors Found -->
+    <ng-template #noDoctors>
+      <p>No doctors found.</p>
+    </ng-template>
+  </div>
+</div>  
+  

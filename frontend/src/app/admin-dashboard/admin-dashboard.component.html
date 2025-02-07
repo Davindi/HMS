@@ -1,0 +1,106 @@
+<app-header (sidebarToggle)="toggleSidebar($event)"></app-header>
+<div class="side-navbar" [class.open]="isSidebarOpen"></div>
+
+    <div class="dashboard" [class.dashboard-shift]="isSidebarOpen">
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+  
+      <div class="dashboard-container">
+        
+        <div class="dashboard-c">
+          <div class="dashboard-card">
+            <span class="material-icons">person</span>
+            <h3>Total Doctors</h3>
+            <p class="count">{{ doctorCount }}</p>
+          </div>
+        
+          <div class="dashboard-card">
+            <span class="material-icons">event</span>
+            <h3>Upcoming Appointments</h3>
+            <p class="count">{{ upcomingAppointmentCount }}</p>
+          </div>
+
+          <div class="dashboard-card">
+            <span class="material-icons">schedule</span>
+            <h3>Upcoming Sessions</h3>
+            <p class="count">{{ upcomingSessionCount }}</p>
+          </div>
+        </div>
+  
+        <!-- Dashboard Cards -->
+        <div class="cards">
+          <div class="card">
+            <h3>Manage Sessions</h3>
+            <p>View, add, or modify doctor sessions and appointments.</p>
+          </div>
+  
+          <div class="card">
+            <h3>Reports</h3>
+            <p>Generate and view reports for session activity and user interactions.</p>
+          </div>
+  
+          <div class="card">
+            <h3>System Settings</h3>
+            <p>Configure system preferences, roles, and other administrative settings.</p>
+          </div>
+  
+          <div class="card">
+            <h3>Manage Users</h3>
+            <p>View and manage doctor, patient, and staff accounts.</p>
+          </div>
+        </div>
+
+        
+        
+
+        <div class="container">
+          <!-- Upcoming Appointments Section -->
+          <div class="appointment-container">
+            <h2>Upcoming Appointments <span class="count-badge">{{ upcomingAppointments?.length }}</span></h2>
+        
+            <div class="table-wrapper">
+              <table class="appointment-table">
+                <thead>
+                  <tr>
+                    <th>Doctor</th>
+                    <th>Date</th>
+                    <th>Session</th>
+                    <th>Patient Email</th>
+                    <th>Appointment No</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let appointment of upcomingAppointments">
+                    <td>{{ appointment.doctorName }}</td>
+                    <td>{{ appointment.date | date:'MMM d, y' }}</td>
+                    <td>{{ appointment.session }}</td>
+                    <td>{{ appointment.userEmail }}</td>
+                    <td>{{ appointment.appointmentNo }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        
+          <!-- Upcoming Sessions Section -->
+          <div class="session-container">
+            <h2>Upcoming Sessions <span class="count-badge">{{ upcomingSessionCount }}</span></h2>
+        
+            <div class="session-list">
+              <div class="session-card" *ngFor="let session of upcomingSessions">
+                <h3>{{ session.title }}</h3>
+                <p><strong>Date:</strong> {{ session.date | date:'MMM d, y' }}</p>
+                <p><strong>Doctor:</strong> {{ session.doctorName }}</p>
+                <p><strong>Session:</strong> {{ session.session }}</p>
+                <p><strong>Status:</strong> <span class="status">{{ session.status }}</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
+      </div>
+    </div>
+
+  

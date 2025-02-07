@@ -1,0 +1,174 @@
+/* Main container for Doctor List & Appointment Form */
+.appointment-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 90px;
+  padding: 50px;
+  flex-direction: row-reverse;
+}
+
+/* Doctor List Styling */
+.doctor-list {
+  flex: 1;
+  max-width: 100%;
+  margin-right: 20px;
+  max-height: 450px; /* Set max height */
+  overflow-y: auto; 
+  overflow-x: hidden;
+  padding: 10px;
+}
+
+.search-container {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  width: 80%;
+  max-width: 300px;
+  margin: 0 auto 20px;
+  z-index: 1000; /* Keep it above other content */
+}
+
+.search-bar {
+  width: 100%;
+  padding: 10px 40px 10px 35px; /* Add space for the icon */
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.search-bar:focus {
+  outline-color: #013d7e;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px; /* Adjust position */
+  font-size: 20px;
+  color: #666;
+  z-index: 1001; /* Make sure the icon stays above the input text */
+}
+
+
+
+/* Container for cards */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  width: 100%;
+  max-width: 100%;
+  justify-content: center;
+  padding: 10px;
+  gap: 20px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 150px;
+  background-color: #eceaea;
+  border: 1px solid #f7f4f4;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.person-icon {
+  font-size: 30px;
+  color: #555;
+}
+
+
+.form-title {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #013d7e;
+}
+
+
+/* Appointment Form Styling */
+.appointment-form {
+  flex: 1;
+  max-width: 50%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #e7e4e4;
+}
+
+.form-field {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field label {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.form-field select,
+.form-field input[type="date"],
+button {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  margin: 20px auto 0;
+  background-color: #013d7e;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  transition: background-color 0.3s ease;
+  display: block; 
+}
+
+button:disabled {
+  background-color: #9e9c9c;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #0251a5;
+}
+
+.appointment-number {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Sidebar */
+.side-navbar.open {
+  left: 0;
+}
+
+.dashboard {
+  transition: margin-left 0.3s ease-in-out;
+  margin-top: 0;
+  padding-top: 80px;
+}
+
+.dashboard-shift {
+  margin-left: 350px;
+}
